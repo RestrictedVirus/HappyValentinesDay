@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valentine's Day</title>
+    <style>
+      /* CSS to make the buttons cover the entire screen */
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #content {
+        text-align: center;
+      }
+      #yesBtn {
+        font-size: 1em;
+        transition: font-size 0.5s ease;
+      }
+
+      /* Responsive styles */
+      @media (max-width: 768px) {
+        #content {
+          padding: 0 10px;
+        }
+        #yesBtn,
+        #noBtn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content">
+      <img
+        src="https://i.pinimg.com/originals/86/ef/00/86ef0001a75a42d071fbf216d8e5ba29.jpg"
+        alt=""
+        srcset=""
+      />
+      <h2>Will you be my valentine? <br> 🙏❤️❤️❤️</h2>
+      <button id="yesBtn">Yes</button>
+      <button id="noBtn">No</button>
+    </div>
+    <script>
+      // JavaScript to handle button clicks
+      const yesBtn = document.getElementById("yesBtn");
+      const noBtn = document.getElementById("noBtn");
+
+      noBtn.addEventListener("click", function () {
+        // Increase font size of 'Yes' button
+        const currentFontSize = parseFloat(
+          window.getComputedStyle(yesBtn).fontSize
+        );
+        yesBtn.style.fontSize = currentFontSize * 3.7 + "px";
+
+        // Change text of 'No' button to beg to accept the request
+        if (noBtn.textContent === "No") {
+          noBtn.textContent = "Please accept 🙏";
+        } else if (noBtn.textContent === "Please accept 🙏") {
+          noBtn.textContent = "Please reconsider 🙏";
+        } else if (noBtn.textContent === "Please reconsider 🙏") {
+          noBtn.textContent = "Please accept my love ❤️";
+        } else {
+          noBtn.textContent = "Please reconsider my love ❤️";
+        }
+      });
+
+      yesBtn.addEventListener("click", function () {
+        // Redirect to another page with thank you message
+        window.location.href = "thankyou.html";
+      });
+    </script>
+  </body>
+</html>
